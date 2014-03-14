@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 
 import com.aoeng.huigu.model.AppInfo;
 import com.aoeng.huigu.service.AppInfoService;
+import com.aoeng.huigu.util.JsonUtils;
 import com.aoeng.huigu.util.ValidateUtil;
 
 /**
@@ -40,7 +41,7 @@ public class AppAction extends BaseAction<AppInfo> {
 			ret("App 查詢 App 詳情失敗 !");
 			return ;
 		}
-		ret(appInfo.toString());
+		ret(JsonUtils.toJson(appInfo));
 		
 	}
 	
