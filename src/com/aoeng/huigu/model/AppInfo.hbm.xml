@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.aoeng.huigu.model">
+
+	<class name="AppInfo" table="appinfo">
+		<id name="id" column="id" type="integer">
+			<generator class="identity" />
+		</id>
+		<property name="appName" column="appname" />
+		<property name="appDesc" column="appdesc" />
+		<property name="name" column="name" />
+		<property name="type" column="type"/>
+		<property name="versionName" column="versionname" />
+		<property name="versionCode" column="versioncode" />
+		<property name="updateDate" column="updatedate" />
+		<property name="desc" column="des" />
+		<property name="url" column="url" />
+		<property name="faceUpdate" column="faceupdate" />
+
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.aoeng.huigu.model">
+
+	<class name="User" table="user">
+		<id name="id" column="id" type="integer">
+			<generator class="identity" />
+		</id>
+		<property name="uid" column="uid"  />
+		<property name="userName" column="username" />
+		<property name="passWord" column="password" />
+		<property name="nickName" column="nickname" />
+		<property name="regDate" column="regdate" />
+		<property name="regIp" column="regip" />
+		<property name="email" column="email" />
+		<property name="mobile" column="mobile" />
+	</class>
+</hibernate-mapping>

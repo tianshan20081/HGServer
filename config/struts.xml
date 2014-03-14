@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN" "struts-2.1.7.dtd" >
+<struts>
+	<!-- 简单主题样式 -->
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 开发模式 -->
+	<constant name="struts.devMode" value="true" />
+	<package name="user" extends="struts-default" namespace="/" >
+		<action name="loginAction_*" method="{1}" class="loginAction"/>
+		<action name="appAction_*" method="{1}" class="appAction"/> 
+	</package>
+</struts>
