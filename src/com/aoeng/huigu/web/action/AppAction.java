@@ -3,8 +3,13 @@
  */
 package com.aoeng.huigu.web.action;
 
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
+import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -14,36 +19,38 @@ import com.aoeng.huigu.util.JsonUtils;
 import com.aoeng.huigu.util.ValidateUtil;
 
 /**
- * @author paynet  Mar 14, 2014 1:45:38 PM
+ * @author paynet Mar 14, 2014 1:45:38 PM
  * 
  */
 @Controller("appAction")
 public class AppAction extends BaseAction<AppInfo> {
 
-	@Resource(name="appInfoService")
-	private AppInfoService infoService ;
-	public void info(){
+	@Resource(name = "appInfoService")
+	private AppInfoService infoService;
+
+	public void info() {
 		if (null == model) {
 			ret("App 详细信息请求參數不能爲空 !");
-			return ;
+			return;
 		}
 		if (!ValidateUtil.isValid(model.getName())) {
 			ret("App name 不能为空!");
-			return ;
+			return;
 		}
 		if (!ValidateUtil.isValid(model.getType())) {
 			ret("App type 不能为空 ！");
-			return ;
+			return;
 		}
 		System.out.println(model.toString());
-		AppInfo appInfo =infoService.getLastAppInfo(model.getName(),model.getType());
+		AppInfo appInfo = infoService.getLastAppInfo(model.getName(), model.getType());
 		if (null == appInfo) {
 			ret("App 查詢 App 詳情失敗 !");
-			return ;
+			return;
 		}
-		ret(JsonUtils.toJson(appInfo));
-		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("response", "AppInfo");
+		map.put("AppInfo", appInfo);
+		JsonUtils.toJson(map);
 	}
-	
 
 }

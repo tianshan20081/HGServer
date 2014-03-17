@@ -3,35 +3,40 @@
  */
 package com.aoeng.huigu.util;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.apache.struts2.ServletActionContext;
 
 import com.sdicons.json.mapper.JSONMapper;
 import com.sdicons.json.mapper.MapperException;
 
-
 /**
- * @author paynet  Mar 14, 2014 5:57:51 PM
+ * @author paynet Mar 14, 2014 5:57:51 PM
  * 
  */
 public class JsonUtils {
-	
-	public static String toJson(Object obj){
-		
+
+	public static void toJson(Map map) {
+
 		try {
-			Map<String, Object>  map = new HashMap<String, Object>();
-			map.put("status", 1);
-			map.put("statusDesc", "desc");
-			map.put("content", obj);
 			String jsonStr = new JSONMapper().toJSON(map).render(false).toString();
-		 return jsonStr;
+			ServletActionContext.getResponse().setCharacterEncoding("UTF-8");
+			ServletActionContext.getResponse().getWriter().print(jsonStr);
 		} catch (MapperException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		return "";
+		try {
+			ServletActionContext.getResponse().getWriter().print("");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-	
-	
 
 }

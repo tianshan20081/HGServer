@@ -3,14 +3,22 @@
  */
 package com.aoeng.huigu.util;
 
+import java.math.BigDecimal;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * @author paynet  Mar 13, 2014 6:58:10 PM
+ * @author paynet Mar 13, 2014 6:58:10 PM
  * 
  */
 public class DataUtil {
+
+	public static Double format(double f) {
+		BigDecimal bg = new BigDecimal(f);
+		double f1 = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+		return f1;
+	}
+
 	/**
 	 * 进行 md5 加密
 	 * 

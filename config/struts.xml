@@ -5,8 +5,9 @@
 	<constant name="struts.ui.theme" value="simple" />
 	<!-- 开发模式 -->
 	<constant name="struts.devMode" value="true" />
-	<package name="user" extends="struts-default" namespace="/" >
-		<action name="loginAction_*" method="{1}" class="loginAction"/>
-		<action name="appAction_*" method="{1}" class="appAction"/> 
+	<package name="user" extends="struts-default" namespace="/">
+		<action name="loginAction_*" method="{1}" class="loginAction" />
+		<action name="appAction_*" method="{1}" class="appAction" />
+		<action name="homeAction_*" method="{1}" class="homeAction" />
 	</package>
 </struts>

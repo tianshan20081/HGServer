@@ -26,4 +26,5 @@ public interface BaseService<T> {
 
 	// hql 批处理实体
 	void batchEntityByHql(String hql, Object... objs);
+	List<T> findEntityByHqlTop(String hql,Object... objs);
 }

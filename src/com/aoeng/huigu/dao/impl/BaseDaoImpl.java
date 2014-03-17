@@ -22,14 +22,15 @@ import com.aoeng.huigu.service.BaseService;
 @SuppressWarnings("unchecked")
 public class BaseDaoImpl<T> implements BaseDao<T> {
 
-	@Resource(name="sessionFactory")
-	protected SessionFactory sf ;
+	@Resource(name = "sessionFactory")
+	protected SessionFactory sf;
 	private Class<T> clazz;
-	
-	public BaseDaoImpl(){
+
+	public BaseDaoImpl() {
 		ParameterizedType type = (ParameterizedType) this.getClass().getGenericSuperclass();
 		clazz = (Class<T>) type.getActualTypeArguments()[0];
 	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -82,7 +83,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	@Override
 	public T findEntity(Integer id) {
 		// TODO Auto-generated method stub
-		return (T) sf.getCurrentSession().get(clazz,id);
+		return (T) sf.getCurrentSession().get(clazz, id);
 	}
 
 	/*
@@ -124,6 +125,23 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 			query.setParameter(i, objs[i]);
 		}
 		query.executeUpdate();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.aoeng.huigu.dao.BaseDao#findEntityByHqlLimit(java.lang.String, int[], java.lang.Object)
+	 */
+	@Override
+	public List<T> findEntityByHqlTop(String hql, Object... objs) {
+		// TODO Auto-generated method stub
+		Query query = sf.getCurrentSession().createQuery(hql);
+		for (int i = 0; i < objs.length; i++) {
+			query.setParameter(i, objs[i]);
+		}
+		query.setFirstResult(0);
+		query.setMaxResults(10);
+		return query.list();
 	}
 
 }

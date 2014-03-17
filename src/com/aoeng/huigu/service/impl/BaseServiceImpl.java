@@ -8,7 +8,7 @@ import com.aoeng.huigu.dao.BaseDao;
 import com.aoeng.huigu.service.BaseService;
 
 public class BaseServiceImpl<T> implements BaseService<T> {
-	private BaseDao<T> dao;
+	protected BaseDao<T> dao;
 	@Resource
 	public void setDao(BaseDao<T> dao) {
 		this.dao = dao;
@@ -22,7 +22,6 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 	@Override
 	public void saveEntity(T t) {
 		// TODO Auto-generated method stub
-		System.out.println("save");
 		dao.saveEntity(t);
 	}
 
@@ -101,6 +100,15 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 	public void batchEntityByHql(String hql, Object... objs) {
 		// TODO Auto-generated method stub
 		dao.batchEntityByHql(hql, objs);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.aoeng.huigu.service.BaseService#findEntityByHqlTop(java.lang.String, java.lang.Object[])
+	 */
+	@Override
+	public List<T> findEntityByHqlTop(String hql, Object... objs) {
+		// TODO Auto-generated method stub
+		return dao.findEntityByHqlTop(hql, objs);
 	}
 
 }

@@ -24,10 +24,15 @@ public class JsonUtil {
 		
 		AppInfo info = new AppInfo();
 		info.setAppDesc("sssss");
+		AppInfo info2 = new AppInfo();
+		info2.setAppDesc("22222");
+		AppInfo info3 = new AppInfo();
+		info3.setAppDesc("3333");
+		AppInfo[] content = new AppInfo[]{info,info2,info3};
 		Map<String, Object>  map = new HashMap<String, Object>();
 		map.put("status", 1);
 		map.put("statusDesc", "desc");
-		map.put("content", info);
+		map.put("content", content);
 		String jsonStr = new JSONMapper().toJSON(map).render(false).toString();
 		
 		System.out.println(jsonStr);
