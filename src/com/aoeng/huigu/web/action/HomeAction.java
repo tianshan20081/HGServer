@@ -28,7 +28,7 @@ public class HomeAction extends BaseAction<Product> {
 	@Resource(name = "productService")
 	private ProductService productService;
 
-	public void getHomeInfo() {
+	public void infos() {
 		
 		List<SimplePro> cyclePros  = productService.getCyclePros();
 		// 获得 新品

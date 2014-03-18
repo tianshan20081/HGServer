@@ -12,6 +12,7 @@ import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Service;
 
+import com.aoeng.huigu.SystemContext;
 import com.aoeng.huigu.dao.BaseDao;
 import com.aoeng.huigu.service.BaseService;
 
@@ -139,8 +140,8 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		for (int i = 0; i < objs.length; i++) {
 			query.setParameter(i, objs[i]);
 		}
-		query.setFirstResult(0);
-		query.setMaxResults(10);
+		query.setFirstResult(SystemContext.getOffSet());
+		query.setMaxResults(SystemContext.getPageSize());
 		return query.list();
 	}
 

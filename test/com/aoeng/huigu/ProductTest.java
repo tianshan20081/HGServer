@@ -3,8 +3,8 @@
  */
 package com.aoeng.huigu;
 
+import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -34,7 +34,7 @@ public class ProductTest {
 	public void addPros() {
 
 		Product p = null;
-		for (int i = 1; i < 50; i++) {
+		for (int i = 1; i < 1000; i++) {
 			p = new Product();
 			p.setName("Iphone" + i);
 			p.setBuyLimit(i);
@@ -45,6 +45,8 @@ public class ProductTest {
 			p.setAvailable(i%2==0?true:false);
 			p.setMarketPrice(i * 35.00 + 15.00);
 			p.setPrice(i * 35.00 + 10);
+			p.setSales(i*i);
+			p.setPubDate(new Date());
 			p.setScore(DataUtil.format(Math.random()));
 			p.setPic(new String[] { "localhost:8080/hg/im0" + i + 1 + ".png", "localhost:8080/hg/im0" + i + ".png" });
 			p.setBigPic(new String[] { "localhost:8080/hg/bigIm0" + i + 1 + ".png", "localhost:8080/hg/bigIm0" + i + ".png" });

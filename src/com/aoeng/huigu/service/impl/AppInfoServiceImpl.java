@@ -4,6 +4,7 @@
 package com.aoeng.huigu.service.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -43,7 +44,13 @@ public class AppInfoServiceImpl extends BaseServiceImpl<AppInfo> implements AppI
 	public AppInfo getLastAppInfo(String name, String type) {
 		// TODO Auto-generated method stub
 		String hql = " from com.aoeng.huigu.model.AppInfo r where r.appName=? and r.type=? and r.id in ( select max(id) from com.aoeng.huigu.model.AppInfo)";
-		return this.findEntityByHql(hql, new String[] { name, type }).get(0);
+		
+		List<AppInfo> infos = this.findEntityByHql(hql, new String[] { name, type }); 
+		if (null != infos && infos.size()>0) {
+			return infos.get(0);
+		}else {
+			return null ;
+		}
 	}
 
 	/*

@@ -3,9 +3,8 @@
  */
 package com.aoeng.huigu.model;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.Date;
 
 /**
  * @author paynet Mar 17, 2014 1:41:37 PM
@@ -16,6 +15,8 @@ public class Product {
 	private int id;
 	/* 商品名称 */
 	private String name;
+	/* 銷量 */
+	private int sales;
 	/* 市场价 */
 	private double marketPrice;
 	/* 商品图片 */
@@ -38,16 +39,20 @@ public class Product {
 	private String inventoryArea;
 	/* 商品大图 */
 	private String[] bigPic;
+	/* 上架時間 */
+	private Date pubDate;
 
 	public Product() {
 		super();
 	}
 
-	public Product(int id, String name, double marketPrice, String[] pic, double price, double limitPrice, long leftTime, double score, boolean available, int buyLimit, int commentCount,
-			String inventoryArea, String[] bigPic) {
+
+	public Product(int id, String name, int sales, double marketPrice, String[] pic, double price, double limitPrice, long leftTime, double score, boolean available, int buyLimit, int commentCount,
+			String inventoryArea, String[] bigPic, Date pubDate) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.sales = sales;
 		this.marketPrice = marketPrice;
 		this.pic = pic;
 		this.price = price;
@@ -59,7 +64,9 @@ public class Product {
 		this.commentCount = commentCount;
 		this.inventoryArea = inventoryArea;
 		this.bigPic = bigPic;
+		this.pubDate = pubDate;
 	}
+
 
 	public int getId() {
 		return id;
@@ -75,6 +82,14 @@ public class Product {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public int getSales() {
+		return sales;
+	}
+
+	public void setSales(int sales) {
+		this.sales = sales;
 	}
 
 	public double getMarketPrice() {
@@ -165,11 +180,19 @@ public class Product {
 		this.bigPic = bigPic;
 	}
 
+	public Date getPubDate() {
+		return pubDate;
+	}
+
+	public void setPubDate(Date pubDate) {
+		this.pubDate = pubDate;
+	}
+
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", marketPrice=" + marketPrice + ", pic=" + Arrays.toString(pic) + ", price=" + price + ", limitPrice=" + limitPrice + ", leftTime=" + leftTime
-				+ ", score=" + score + ", available=" + available + ", buyLimit=" + buyLimit + ", commentCount=" + commentCount + ", inventoryArea=" + inventoryArea + ", bigPic="
-				+ Arrays.toString(bigPic) + "]";
+		return "Product [id=" + id + ", name=" + name + ", sales=" + sales + ", marketPrice=" + marketPrice + ", pic=" + Arrays.toString(pic) + ", price=" + price + ", limitPrice=" + limitPrice
+				+ ", leftTime=" + leftTime + ", score=" + score + ", available=" + available + ", buyLimit=" + buyLimit + ", commentCount=" + commentCount + ", inventoryArea=" + inventoryArea
+				+ ", bigPic=" + Arrays.toString(bigPic) + ", pubDate=" + pubDate + "]";
 	}
 
 }

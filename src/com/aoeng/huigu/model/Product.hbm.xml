@@ -18,6 +18,8 @@
 		<property name="commentCount" column="commentcount" />
 		<property name="inventoryArea" column="inventoryarea" />
 		<property name="bigPic" column="bigpic" />
+		<property name="sales" column="sales"/>
+		<property name="pubDate"  column="pubdate"/>
 
 	</class>
 </hibernate-mapping>

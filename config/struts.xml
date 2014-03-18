@@ -9,5 +9,7 @@
 		<action name="loginAction_*" method="{1}" class="loginAction" />
 		<action name="appAction_*" method="{1}" class="appAction" />
 		<action name="homeAction_*" method="{1}" class="homeAction" />
+		
+		<action name="searchAction_*" method="{1}" class="searchAction" />
 	</package>
 </struts>
