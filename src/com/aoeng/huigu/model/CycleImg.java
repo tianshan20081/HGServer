@@ -3,6 +3,10 @@
  */
 package com.aoeng.huigu.model;
 
+import java.util.concurrent.ThreadLocalRandom;
+
+import net.sf.cglib.core.Local;
+
 /**
  * @author paynet Mar 17, 2014 11:57:23 AM 首页 轮转大图
  */
@@ -14,6 +18,7 @@ public class CycleImg {
 
 	public CycleImg() {
 		super();
+		
 	}
 
 	public CycleImg(int id, String title, String picUrl) {

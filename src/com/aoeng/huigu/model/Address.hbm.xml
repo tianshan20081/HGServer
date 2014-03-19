@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.aoeng.huigu.model">
+
+	<class name="Address" table="address">
+		<id name="id" column="id" type="integer">
+			<generator class="identity" />
+		</id>
+		<property name="name" column="name" />
+		<property name="phone" column="phone" />
+		<property name="fixedTel" column="fixedtel" />
+		<property name="provinceId" column="provinceid"/>
+		<property name="cityId" column="cityid" />
+		<property name="areaId" column="areaid" />
+		<property name="areaDetail" column="areadetail" />
+		<property name="zipCode" column="zipcode" />
+
+	</class>
+</hibernate-mapping>

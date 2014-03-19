@@ -41,30 +41,15 @@ public class Product {
 	private String[] bigPic;
 	/* 上架時間 */
 	private Date pubDate;
+	/* 是否促销 促销 则为 true ,否则为false 默认为 false */
+	private boolean topic = false;
+	/* 推荐品牌 则为 true ,否则为false 默认为 false */
+	private boolean brand = false;
+	/* 显示售卖 则为 true ,否则为false 默认为 false */
+	private boolean limitBuy = false ;
 
 	public Product() {
 		super();
-	}
-
-
-	public Product(int id, String name, int sales, double marketPrice, String[] pic, double price, double limitPrice, long leftTime, double score, boolean available, int buyLimit, int commentCount,
-			String inventoryArea, String[] bigPic, Date pubDate) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.sales = sales;
-		this.marketPrice = marketPrice;
-		this.pic = pic;
-		this.price = price;
-		this.limitPrice = limitPrice;
-		this.leftTime = leftTime;
-		this.score = score;
-		this.available = available;
-		this.buyLimit = buyLimit;
-		this.commentCount = commentCount;
-		this.inventoryArea = inventoryArea;
-		this.bigPic = bigPic;
-		this.pubDate = pubDate;
 	}
 
 
@@ -188,11 +173,40 @@ public class Product {
 		this.pubDate = pubDate;
 	}
 
+	public boolean isTopic() {
+		return topic;
+	}
+
+	public void setTopic(boolean topic) {
+		this.topic = topic;
+	}
+
+	public boolean isBrand() {
+		return brand;
+	}
+
+	public void setBrand(boolean brand) {
+		this.brand = brand;
+	}
+
+	public boolean isLimitBuy() {
+		return limitBuy;
+	}
+
+
+	public void setLimitBuy(boolean limitBuy) {
+		this.limitBuy = limitBuy;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", sales=" + sales + ", marketPrice=" + marketPrice + ", pic=" + Arrays.toString(pic) + ", price=" + price + ", limitPrice=" + limitPrice
 				+ ", leftTime=" + leftTime + ", score=" + score + ", available=" + available + ", buyLimit=" + buyLimit + ", commentCount=" + commentCount + ", inventoryArea=" + inventoryArea
-				+ ", bigPic=" + Arrays.toString(bigPic) + ", pubDate=" + pubDate + "]";
+				+ ", bigPic=" + Arrays.toString(bigPic) + ", pubDate=" + pubDate + ", topic=" + topic + ", brand=" + brand + ", limitBuy=" + limitBuy + "]";
 	}
+
+
+	
 
 }

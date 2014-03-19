@@ -107,8 +107,10 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	public List<T> findEntityByHql(String hql, Object... objs) {
 		// TODO Auto-generated method stub
 		Query query = sf.getCurrentSession().createQuery(hql);
-		for (int i = 0; i < objs.length; i++) {
-			query.setParameter(i, objs[i]);
+		if (null != objs && objs.length >0) {
+			for (int i = 0; i < objs.length; i++) {
+				query.setParameter(i, objs[i]);
+			}
 		}
 		return query.list();
 	}

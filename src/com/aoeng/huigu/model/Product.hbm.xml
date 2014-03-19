@@ -6,7 +6,7 @@
 		<id name="id" column="id" type="integer">
 			<generator class="identity" />
 		</id>
-		<property name="name" column="name"  />
+		<property name="name" column="name" />
 		<property name="marketPrice" column="marketPrice" />
 		<property name="pic" column="pic" />
 		<property name="price" column="price" />
@@ -18,8 +18,11 @@
 		<property name="commentCount" column="commentcount" />
 		<property name="inventoryArea" column="inventoryarea" />
 		<property name="bigPic" column="bigpic" />
-		<property name="sales" column="sales"/>
-		<property name="pubDate"  column="pubdate"/>
+		<property name="sales" column="sales" />
+		<property name="pubDate" column="pubdate" />
+		<property name="topic" column="topic" />
+		<property name="brand" column="brand"/>
+		<property name="limitBuy" column="limitbuy"/>
 
 	</class>
 </hibernate-mapping>
