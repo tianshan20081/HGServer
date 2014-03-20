@@ -30,7 +30,7 @@ public class Product {
 	/* 商品评分 */
 	private double score;
 	/* 是否可售 */
-	private boolean available;
+	private boolean available = true;
 	/* 单品购买上限 */
 	private int buyLimit;
 	/* 评论总数 */
@@ -207,6 +207,7 @@ public class Product {
 	}
 
 
+	
 	
 
 }

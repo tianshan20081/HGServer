@@ -36,7 +36,7 @@ public class ProductTest {
 	public void addPros() {
 
 		Product p = null;
-		for (int i = 1; i < 20; i++) {
+		for (int i = 1; i < 1000; i++) {
 			p = new Product();
 			p.setName("Iphone" + i);
 			p.setBuyLimit(i);
@@ -48,7 +48,10 @@ public class ProductTest {
 			p.setMarketPrice(i * 35.00 + 15.00);
 			p.setPrice(i * 35.00 + 10);
 			p.setSales(i * i);
-			p.setLimitBuy(true);
+			p.setLimitBuy(i%7==0?true:false);
+			p.setBrand(i%9==0?true:false);
+			p.setAvailable(i%3==0?true:false);
+			p.setTopic(i%23==0?true:false);
 			p.setPubDate(new Date());
 			p.setScore(DataUtil.format(Math.random()));
 			p.setPic(new String[] { "localhost:8080/hg/im0" + i + 1 + ".png", "localhost:8080/hg/im0" + i + ".png" });
