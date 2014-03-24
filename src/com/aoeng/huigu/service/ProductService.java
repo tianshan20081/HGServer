@@ -5,6 +5,7 @@ package com.aoeng.huigu.service;
 
 import java.util.List;
 
+import com.aoeng.huigu.model.CycleImg;
 import com.aoeng.huigu.model.LimitItem;
 import com.aoeng.huigu.model.Product;
 import com.aoeng.huigu.model.SearchItem;
@@ -30,7 +31,7 @@ public interface ProductService extends BaseService<Product> {
 	/**
 	 * @return
 	 */
-	List<SimplePro> getCyclePros();
+	List<CycleImg> getCyclePros();
 
 	/**
 	 * @param hql

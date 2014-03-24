@@ -11,6 +11,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.aoeng.huigu.dao.BaseDao;
+import com.aoeng.huigu.model.CycleImg;
 import com.aoeng.huigu.model.LimitItem;
 import com.aoeng.huigu.model.Product;
 import com.aoeng.huigu.model.SearchItem;
@@ -86,15 +87,15 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
 	 * @see com.aoeng.huigu.service.ProductService#getCyclePros()
 	 */
 	@Override
-	public List<SimplePro> getCyclePros() {
+	public List<CycleImg> getCyclePros() {
 		// TODO Auto-generated method stub
 		String hql = "from Product r order by r.id desc ";
 		List<Product> ps = this.findEntityByHqlTop(hql);
-		List<SimplePro> pros = new ArrayList<SimplePro>();
+		List<CycleImg> pros = new ArrayList<CycleImg>();
 		if (null != ps && ps.size() > 0) {
 			SimplePro sp = null;
 			for (int i = 0; i < (ps.size() > 4 ? 4 : ps.size()); i++) {
-				pros.add(new SimplePro(ps.get(i).getId(), ps.get(i).getName(), ps.get(i).getBigPic()[0], ""));
+				pros.add(new CycleImg(ps.get(i).getId(), ps.get(i).getName(), ps.get(i).getBigPic()[0]));
 			}
 		}
 		return pros;

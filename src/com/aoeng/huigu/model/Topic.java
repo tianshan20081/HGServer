@@ -3,11 +3,19 @@
  */
 package com.aoeng.huigu.model;
 
+import java.io.Serializable;
+import java.util.UUID;
+
 /**
  * @author paynet Mar 19, 2014 3:12:16 PM 促销快报 产品信息
  */
-public class Topic {
+public class Topic  implements Serializable{
 
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5828606452342093664L;
 	private int id;
 	private String name;
 	private String picUrl;

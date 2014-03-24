@@ -36,7 +36,7 @@ public class ProductTest {
 	public void addPros() {
 
 		Product p = null;
-		for (int i = 1; i < 1000; i++) {
+		for (int i = 1; i < 100; i++) {
 			p = new Product();
 			p.setName("Iphone" + i);
 			p.setBuyLimit(i);
@@ -54,8 +54,9 @@ public class ProductTest {
 			p.setTopic(i%23==0?true:false);
 			p.setPubDate(new Date());
 			p.setScore(DataUtil.format(Math.random()));
-			p.setPic(new String[] { "localhost:8080/hg/im0" + i + 1 + ".png", "localhost:8080/hg/im0" + i + ".png" });
-			p.setBigPic(new String[] { "localhost:8080/hg/bigIm0" + i + 1 + ".png", "localhost:8080/hg/bigIm0" + i + ".png" });
+			String local = "http://192.168.4.4:8080/hg/images/";
+			p.setPic(new String[] { local+"img0" + (i%3 + 1)  + ".png", local+"img0" +( i %3)+ ".png" });
+			p.setBigPic(new String[] {  local+"img0" + (i%5 + 1 )+ ".png",  local+"img0" + ( i %2) + ".png" });
 			ps.saveEntity(p);
 		}
 

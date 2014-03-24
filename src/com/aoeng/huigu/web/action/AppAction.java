@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.Servlet;
 
 import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
@@ -28,7 +29,19 @@ public class AppAction extends BaseAction<AppInfo> {
 	@Resource(name = "appInfoService")
 	private AppInfoService infoService;
 
+	public void version() {
+		AppInfo appInfo = infoService.getLastAppInfo("huigu","android");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("response", "AppInfo");
+		map.put("AppInfo", appInfo);
+		JsonUtils.toJson(map);
+	}
 	public void info() {
+		StringBuffer reurl = ServletActionContext.getRequest().getRequestURL();
+			System.out.println(reurl);
+			System.out.println(ServletActionContext.getRequest().getRemoteAddr());
+			System.out.println(ServletActionContext.getRequest().getRemoteHost());
+		
 		if (null == model) {
 			ret("App 详细信息请求參數不能爲空 !");
 			return;
