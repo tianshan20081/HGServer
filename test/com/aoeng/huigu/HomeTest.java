@@ -25,12 +25,12 @@ public class HomeTest {
 	public static void intAC(){
 		ac = new ClassPathXmlApplicationContext("classpath:beans.xml");
 		ps = (ProductService) ac.getBean("productService");
+		SystemContext.setOffSet("0");
+		SystemContext.setPageSize("4");
 	}
 	
 	@Test
 	public void cycle(){
-		SystemContext.setOffSet(0);
-		SystemContext.setPageSize(3);
 		List<CycleImg> cycleImgs = ps.getCyclePros();
 		for (CycleImg c : cycleImgs) {
 			System.out.println(c.toString());

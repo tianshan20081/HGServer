@@ -110,14 +110,13 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
 	public List<SearchItem> search(String hql, String[] objs) {
 		// TODO Auto-generated method stub
 		List<Product> pros = this.findEntityByHqlTop(hql, objs);
-		List<SearchItem> items = new ArrayList<SearchItem>();
+		List<SearchItem> ts = new ArrayList<SearchItem>();
 		if (null != pros && pros.size() > 0) {
-			
 			for (Product p : pros) {
-				items.add(new SearchItem(p.getId(), p.getName(), p.getPic()[0], p.getPrice(), p.getMarketPrice()));
+				ts.add(new SearchItem(p.getId(), p.getName(), p.getPic()[0], p.getPrice(), p.getMarketPrice(),p.getSales()));
 			}
 		}
-		return items;
+		return ts;
 	}
 
 	/*
@@ -139,12 +138,14 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
 		return ts;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.aoeng.huigu.service.ProductService#getBrandPros()
 	 */
 	@Override
 	public List<Topic> getBrandPros() {
-		String hql = "from Product p where p.brand= ? ";
+		String hql = "from Product p where p.brand= ? order by p.id ";
 		List<Product> pros = this.findEntityByHqlTop(hql, new Object[] { true });
 		List<Topic> ts = new ArrayList<Topic>();
 		if (null != pros && pros.size() > 0) {
@@ -155,7 +156,9 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
 		return ts;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.aoeng.huigu.service.ProductService#getLimitBuyPros()
 	 */
 	@Override
@@ -172,19 +175,37 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
 		return ts;
 	}
 
-	/* 
+	/*
 	 * 新品上架：最后发布的 100 个商品
 	 */
 	@Override
 	public List<SearchItem> getNewlyPros() {
 		// TODO Auto-generated method stub
-		
+
 		String hql = "from Product p order by p.id desc ";
 		List<Product> pros = this.findEntityByHqlTop(hql);
 		List<SearchItem> ts = new ArrayList<SearchItem>();
 		if (null != pros && pros.size() > 0) {
 			for (Product p : pros) {
-				ts.add(new SearchItem(p.getId(),p.getName(), p.getPic()[0], p.getPrice(), p.getMarketPrice()));
+				ts.add(new SearchItem(p.getId(), p.getName(), p.getPic()[0], p.getPrice(), p.getMarketPrice(),p.getSales()));
+			}
+		}
+		return ts;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.aoeng.huigu.service.ProductService#getSearchPros(java.lang.String)
+	 */
+	@Override
+	public List<SearchItem> getSearchPros(Object... search) {
+		String hql = "from Product p where p.name like ? order by p.id desc ";
+		List<Product> pros = this.findEntityByHqlTop(hql, search);
+		List<SearchItem> ts = new ArrayList<SearchItem>();
+		if (null != pros && pros.size() > 0) {
+			for (Product p : pros) {
+				ts.add(new SearchItem(p.getId(), p.getName(), p.getPic()[0], p.getPrice(), p.getMarketPrice(),p.getSales()));
 			}
 		}
 		return ts;

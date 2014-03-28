@@ -40,6 +40,9 @@ public class JsonUtil {
 	public static void initAC(){
 		ac = new ClassPathXmlApplicationContext("classpath:beans.xml");
 		ps = (ProductService) ac.getBean("productService");
+		SystemContext.setOffSet("0");
+		SystemContext.setPageSize("4");
+		
 	}
 
 	@Test
@@ -64,8 +67,6 @@ public class JsonUtil {
 	public void parserAliJson() throws Exception{
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("response", "topic");
-		SystemContext.setOffSet(0);
-		SystemContext.setPageSize(2);
 		List<Topic> pros = ps.getTopicPros();
 		map.put("proList", pros);
 		map.put("prosSize", pros.size());

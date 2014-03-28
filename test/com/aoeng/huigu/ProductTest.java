@@ -30,11 +30,12 @@ public class ProductTest {
 	public static void initAC() {
 		ac = new ClassPathXmlApplicationContext("classpath:beans.xml");
 		ps = (ProductService) ac.getBean("productService");
+		SystemContext.setOffSet("0");
+		SystemContext.setPageSize("4");
 	}
 
 	@Test
 	public void addPros() {
-
 		Product p = null;
 		for (int i = 1; i < 100; i++) {
 			p = new Product();
@@ -64,8 +65,6 @@ public class ProductTest {
 
 	@Test
 	public void getHotSalePros() {
-		SystemContext.setOffSet(0);
-		SystemContext.setPageSize(5);
 		List<SimplePro> pros = ps.getHotSalePros();
 		for (SimplePro product : pros) {
 			System.out.println(product.toString());
@@ -74,8 +73,6 @@ public class ProductTest {
 
 	@Test
 	public void getNewPros() {
-		SystemContext.setOffSet(0);
-		SystemContext.setPageSize(3);
 		List<SimplePro> pros = ps.getNewPros();
 		for (SimplePro p : pros) {
 			System.out.println(p);
@@ -84,8 +81,6 @@ public class ProductTest {
 
 	@Test
 	public void topic() {
-		SystemContext.setOffSet(0);
-		SystemContext.setPageSize(3);
 		List<Topic> ts = ps.getTopicPros();
 		
 		for (Topic topic : ts) {
@@ -95,8 +90,6 @@ public class ProductTest {
 	}
 	@Test
 	public void brand() {
-		SystemContext.setOffSet(0);
-		SystemContext.setPageSize(3);
 		List<Topic> ts = ps.getBrandPros();
 		
 		for (Topic topic : ts) {
@@ -106,8 +99,6 @@ public class ProductTest {
 	}
 	@Test
 	public void limitBuy() {
-		SystemContext.setOffSet(0);
-		SystemContext.setPageSize(3);
 		List<LimitItem> ts = ps.getLimitBuyPros();
 		
 		for (LimitItem p : ts) {

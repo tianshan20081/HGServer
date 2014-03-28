@@ -62,4 +62,10 @@ public interface ProductService extends BaseService<Product> {
 	 */
 	List<SearchItem> getNewlyPros();
 
+	/**
+	 * @param search
+	 * @return
+	 */
+	List<SearchItem> getSearchPros(Object...search);
+
 }
