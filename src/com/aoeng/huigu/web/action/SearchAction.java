@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.aoeng.huigu.web.action;
 
 import java.util.HashMap;
@@ -26,8 +23,8 @@ import com.aoeng.huigu.util.JsonUtils;
 public class SearchAction extends BaseAction<Product> {
 
 	private String keyWord;
-	private int startPage ;
-	private int pageNum ;
+	private String offSet;
+	private String pageSize;
 	private String orderBy;
 
 	@Resource
@@ -61,8 +58,8 @@ public class SearchAction extends BaseAction<Product> {
 			}
 			hql += orderStr;
 		}
-		SystemContext.setPageSize(pageNum);
-		SystemContext.setOffSet(startPage * SystemContext.getPageSize());
+		SystemContext.setOffSet(offSet);
+		SystemContext.setPageSize(pageSize);
 		List<SearchItem> products = productService.search(hql, new String[] { "%" + keyWord + "%" });
 		map.put("response", "search");
 		map.put("pros", products);
@@ -78,12 +75,12 @@ public class SearchAction extends BaseAction<Product> {
 		this.keyWord = keyWord;
 	}
 
-	public void setStartPage(int startPage) {
-		this.startPage = startPage;
+	public void setOffSet(String offSet) {
+		this.offSet = offSet;
 	}
 
-	public void setPageNum(int pageNum) {
-		this.pageNum = pageNum;
+	public void setPageSize(String pageSize) {
+		this.pageSize = pageSize;
 	}
 
 	public void setOrderBy(String orderBy) {

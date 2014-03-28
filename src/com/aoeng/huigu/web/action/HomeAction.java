@@ -48,8 +48,8 @@ public class HomeAction extends BaseAction<Product> {
 	}
 
 	public void cycle() {
-		SystemContext.setOffSet(0);
-		SystemContext.setPageSize(5);
+		SystemContext.setOffSet("0");
+		SystemContext.setPageSize("5");
 		List<CycleImg> cyclePros = productService.getCyclePros();
 		Map<String, Object> map = new HashMap<String, Object>();
 
