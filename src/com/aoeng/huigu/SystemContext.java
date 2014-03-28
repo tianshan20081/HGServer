@@ -3,12 +3,13 @@
  */
 package com.aoeng.huigu;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * Oct 30, 2013 6:08:24 PM
  * 
  */
-public class SystemContext
-{
+public class SystemContext {
 	private static ThreadLocal offSet = new ThreadLocal();
 	private static ThreadLocal pageSize = new ThreadLocal();
 
@@ -27,8 +28,8 @@ public class SystemContext
 	 * @param offSet
 	 *            the offSet to set
 	 */
-	public static void setOffSet(int _offSet) {
-		offSet.set(_offSet);
+	public static void setOffSet(String _offSet) {
+		offSet.set(StringUtils.isEmpty(_offSet) ? 0 : Integer.valueOf(_offSet));
 	}
 
 	/**
@@ -46,8 +47,8 @@ public class SystemContext
 	 * @param pageSize
 	 *            the pageSize to set
 	 */
-	public static void setPageSize(int _pageSize) {
-		pageSize.set(_pageSize);
+	public static void setPageSize(String _pageSize) {
+		pageSize.set(StringUtils.isEmpty(_pageSize) || Integer.valueOf(_pageSize) == 0 ? 10 : Integer.valueOf(_pageSize));
 	}
 
 	public static void removeOffSet() {
