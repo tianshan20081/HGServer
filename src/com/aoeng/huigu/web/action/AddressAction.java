@@ -34,7 +34,7 @@ public class AddressAction extends BaseAction<Address> {
 		JsonUtils.toJson(map);
 	}
 
-	public void get() {
+	public void list() {
 		List<Address> as = addressService.getAllAddress();
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("response", "address");

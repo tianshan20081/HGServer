@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.aoeng.huigu.model">
+
+	<class name="OrderDetail" table="orderdetail">
+		<id name="id" column="id" type="integer">
+			<generator class="identity" />
+		</id>
+		<property name="amount" column="amount" />
+		<property name="orderTime" column="ordertime" />
+		<property name="orderStatus" column="orderstatus" />
+
+		<set name="pros" inverse="false" lazy="false" order-by="id">
+			<key column="provoid"/>
+			<one-to-many class="ProVO" />
+		</set>
+	</class>
+</hibernate-mapping>

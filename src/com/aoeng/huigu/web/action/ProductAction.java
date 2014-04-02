@@ -34,6 +34,22 @@ public class ProductAction extends BaseAction<Product> {
 	private String offSet;
 	private String pageSize;
 	private String orderBy;
+	private String proId;
+
+	public void detail() {
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		Product product;
+		try {
+			map.put("response", "detail");
+			product = productService.findEntity(Integer.valueOf(proId));
+			map.put("product", product);
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			map.put("response", "error");
+		}
+		JsonUtils.toJson(map);
+	}
 
 	/**
 	 * 输入关键字，查询商品
@@ -134,6 +150,10 @@ public class ProductAction extends BaseAction<Product> {
 		map.put("prosSize", pros.size());
 
 		JsonUtils.toJson(map);
+	}
+
+	public void setProId(String proId) {
+		this.proId = proId;
 	}
 
 	public void setPageSize(String pageSize) {

@@ -104,7 +104,18 @@ public class ProductTest {
 		for (LimitItem p : ts) {
 			System.out.println(p.toString());
 		}
-
+	}
+	@Test
+	public void modifyAddr(){
+		String hql = "from Product ";
+		List<Product> list = ps.findEntityByHql(hql);
+		for (Product p : list) {
+			p.setPic(new String[]{p.getPic()[0].replace("http://192.168.4.4:8080/hg/", ""),
+					p.getPic()[1].replace("http://192.168.4.4:8080/hg/", "")});
+			p.setBigPic(new String[]{p.getBigPic()[0].replace("http://192.168.4.4:8080/hg/", ""),
+					p.getBigPic()[1].replace("http://192.168.4.4:8080/hg/", "")});
+			ps.saveOrUpdateEntity(p);
+		}
 	}
 
 }

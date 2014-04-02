@@ -14,5 +14,7 @@
 		<action name="help_*" method="{1}" class="helpAction" />
 		<action name="address_*" method="{1}" class="addressAction" />
 		<action name="pros_*" method="{1}" class="productAction" />
+
+		<action name="order_*" method="{1}" class="orderAction" />
 	</package>
 </struts>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.aoeng.huigu.model">
+
+	<class name="City" table="city">
+		<id name="id" column="id" type="integer">
+			<generator class="identity" />
+		</id>
+		<property name="areaid" column="areaid" />
+		<property name="areapid" column="areapid" />
+		<property name="areaname" column="areaname" />
+		<property name="areatype" column="areatype"/>
+
+	</class>
+</hibernate-mapping>
