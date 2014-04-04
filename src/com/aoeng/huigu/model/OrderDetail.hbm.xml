@@ -6,12 +6,20 @@
 		<id name="id" column="id" type="integer">
 			<generator class="identity" />
 		</id>
+		<property name="oid" column="oid" />
 		<property name="amount" column="amount" />
-		<property name="orderTime" column="ordertime" />
-		<property name="orderStatus" column="orderstatus" />
+		<property name="status" column="status" />
+		<property name="allAmount" column="allamount" />
+		<property name="freight" column="freight" />
+		<property name="discount" column="discount" />
+		<property name="payMethod" column="paymethod" />
+		<property name="transport" column="transport" />
+		<property name="transportId" column="transportid" />
+		<property name="createTime" column="createtime" />
+		<property name="adsId" column="adsid" />
 
 		<set name="pros" inverse="false" lazy="false" order-by="id">
-			<key column="provoid"/>
+			<key column="provoid" />
 			<one-to-many class="ProVO" />
 		</set>
 	</class>

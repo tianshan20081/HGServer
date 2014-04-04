@@ -6,13 +6,14 @@
 		<id name="id" column="id" type="integer">
 			<generator class="identity" />
 		</id>
-		<property name="name" column="name" />
-		<property name="phone" column="phone" />
+		<property name="adsId" column="adsid" not-null="true" unique="true" />
+		<property name="name" column="name" not-null="true" />
+		<property name="phone" column="phone" not-null="true" />
 		<property name="fixedTel" column="fixedtel" />
-		<property name="provinceId" column="provinceid"/>
-		<property name="cityId" column="cityid" />
-		<property name="areaId" column="areaid" />
-		<property name="areaDetail" column="areadetail" />
+		<property name="provinceId" column="provinceid" not-null="true" />
+		<property name="cityId" column="cityid" not-null="true" />
+		<property name="areaId" column="areaid" not-null="true" />
+		<property name="areaDetail" column="areadetail" not-null="true" />
 		<property name="zipCode" column="zipcode" />
 
 	</class>

@@ -18,4 +18,10 @@ public interface AddressService extends BaseService<Address> {
 	 */
 	List<Address> getAllAddress();
 
+	/**
+	 * @param string
+	 * @return
+	 */
+	Address getAddressByAdsId(String string);
+
 }

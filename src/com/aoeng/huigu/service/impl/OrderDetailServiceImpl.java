@@ -51,8 +51,20 @@ public class OrderDetailServiceImpl extends BaseServiceImpl<OrderDetail> impleme
 		String hql = "from OrderDetail o ";
 		List<OrderDetail> ods = this.dao.findEntityByHql(hql);
 		for (OrderDetail o : ods) {
-			list.add(new OrderSummary(o.getId(), o.getAmount(), "images/img04.png", o.getOrderTime(), o.getOrderStatus()));
+			list.add(new OrderSummary(o.getId(), o.getAmount(), "images/img04.png", o.getCreateTime(), o.getStatus()));
 		}
 		return list;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.aoeng.huigu.service.OrderDetailService#getOrderByOid(java.lang.String)
+	 */
+	@Override
+	public OrderDetail getOrderByOid(String oid) {
+		// TODO Auto-generated method stub
+		String hql = "from OrderDetail o where o.oid = ? ";
+		return this.dao.findEntityByHql(hql, new Object[] { oid }).get(0);
 	}
 }

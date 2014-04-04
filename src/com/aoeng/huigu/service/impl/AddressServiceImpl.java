@@ -14,23 +14,27 @@ import com.aoeng.huigu.model.Address;
 import com.aoeng.huigu.service.AddressService;
 
 /**
- * @author paynet  Mar 19, 2014 12:31:32 PM
+ * @author paynet Mar 19, 2014 12:31:32 PM
  * 
  */
 @Service("addressService")
 public class AddressServiceImpl extends BaseServiceImpl<Address> implements AddressService {
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.aoeng.huigu.service.impl.BaseServiceImpl#setDao(com.aoeng.huigu.dao.BaseDao)
 	 */
-	@Resource(name="addressDao")
+	@Resource(name = "addressDao")
 	@Override
 	public void setDao(BaseDao<Address> dao) {
 		// TODO Auto-generated method stub
 		super.setDao(dao);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.aoeng.huigu.service.AddressService#getAllAddress()
 	 */
 	@Override
@@ -38,6 +42,19 @@ public class AddressServiceImpl extends BaseServiceImpl<Address> implements Addr
 		// TODO Auto-generated method stub
 		String hql = "from Address a ";
 		return this.findEntityByHql(hql);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.aoeng.huigu.service.AddressService#getAddressByAdsId(java.lang.String)
+	 */
+	@Override
+	public Address getAddressByAdsId(String asdId) {
+		// TODO Auto-generated method stub
+		String hql = " from Address a where a.adsId = ? ";
+
+		return this.dao.findEntityByHql(hql, new Object[] { asdId }).get(0);
 	}
 
 }

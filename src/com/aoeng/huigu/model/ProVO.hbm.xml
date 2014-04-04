@@ -8,6 +8,5 @@
 		</id>
 		<property name="proId" column="proid" />
 		<property name="number" column="number" />
-		<many-to-one name="orderDetail" class="OrderDetail" column="provoid"/>
 	</class>
 </hibernate-mapping>

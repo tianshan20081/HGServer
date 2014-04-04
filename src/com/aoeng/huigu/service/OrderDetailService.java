@@ -21,4 +21,10 @@ public interface OrderDetailService extends BaseService<OrderDetail> {
 	 */
 	List<OrderSummary> findOrdersByUid(int userId);
 
+	/**
+	 * @param string
+	 * @return
+	 */
+	OrderDetail getOrderByOid(String string);
+
 }
