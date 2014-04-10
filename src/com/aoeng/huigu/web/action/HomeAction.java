@@ -39,7 +39,7 @@ public class HomeAction extends BaseAction<Product> {
 
 		Map<String, Object> map = new HashMap<String, Object>();
 
-		map.put("response", "home");
+		map.put("result", "1");
 		map.put("cyclePros", cyclePros);
 		map.put("classList", newPros);
 		// map.put("hotSalePros", hotSalePros);
@@ -53,7 +53,7 @@ public class HomeAction extends BaseAction<Product> {
 		List<CycleImg> cyclePros = productService.getCyclePros();
 		Map<String, Object> map = new HashMap<String, Object>();
 
-		map.put("response", "home");
+		map.put("result", "1");
 		map.put("cyclePros", cyclePros);
 		map.put("cycleProsSize", cyclePros.size());
 		// map.put("hotSalePros", hotSalePros);

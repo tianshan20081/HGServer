@@ -32,7 +32,7 @@ public class AppAction extends BaseAction<AppInfo> {
 	public void version() {
 		AppInfo appInfo = infoService.getLastAppInfo("huigu","android");
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("response", "AppInfo");
+		map.put("result", "1");
 		map.put("AppInfo", appInfo);
 		JsonUtils.toJson(map);
 	}
@@ -61,7 +61,7 @@ public class AppAction extends BaseAction<AppInfo> {
 			return;
 		}
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("response", "AppInfo");
+		map.put("response", "1");
 		map.put("AppInfo", appInfo);
 		JsonUtils.toJson(map);
 	}

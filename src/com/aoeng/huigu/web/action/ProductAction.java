@@ -41,12 +41,12 @@ public class ProductAction extends BaseAction<Product> {
 
 		Product product;
 		try {
-			map.put("response", "detail");
+			map.put("result", "1");
 			product = productService.findEntity(Integer.valueOf(proId));
 			map.put("product", product);
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
-			map.put("response", "error");
+			map.put("result", "0");
 		}
 		JsonUtils.toJson(map);
 	}
@@ -80,7 +80,7 @@ public class ProductAction extends BaseAction<Product> {
 		SystemContext.setOffSet(offSet);
 		SystemContext.setPageSize(pageSize);
 		List<SearchItem> products = productService.search(hql, new String[] { "%" + keyWord + "%" });
-		map.put("response", "search");
+		map.put("result", "1");
 		map.put("proList", products);
 		map.put("proSize", products.size());
 		JsonUtils.toJson(map);
@@ -91,7 +91,7 @@ public class ProductAction extends BaseAction<Product> {
 	 */
 	public void topic() {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("response", "topic");
+		map.put("result", "1");
 		SystemContext.setOffSet(offSet);
 		SystemContext.setPageSize(pageSize);
 		List<Topic> pros = productService.getTopicPros();
@@ -108,7 +108,7 @@ public class ProductAction extends BaseAction<Product> {
 	 */
 	public void brand() {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("response", "topic");
+		map.put("result", "1");
 		SystemContext.setOffSet(offSet);
 		SystemContext.setPageSize(pageSize);
 		List<Topic> pros = productService.getBrandPros();
@@ -125,7 +125,7 @@ public class ProductAction extends BaseAction<Product> {
 	 */
 	public void limitBuy() {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("response", "topic");
+		map.put("result", "1");
 		SystemContext.setOffSet(offSet);
 		SystemContext.setPageSize(pageSize);
 		List<LimitItem> pros = productService.getLimitBuyPros();
@@ -142,7 +142,7 @@ public class ProductAction extends BaseAction<Product> {
 	 */
 	public void newProduct() {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("response", "topic");
+		map.put("result", "1");
 		SystemContext.setOffSet(offSet);
 		SystemContext.setPageSize(pageSize);
 		List<SearchItem> pros = productService.getNewlyPros();

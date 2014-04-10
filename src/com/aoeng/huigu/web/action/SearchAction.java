@@ -37,7 +37,7 @@ public class SearchAction extends BaseAction<Product> {
 
 		String orderStr = "";
 		if (StringUtils.isEmpty(keyWord)) {
-			map.put("response", "empty");
+			map.put("result", "0");
 			JsonUtils.toJson(map);
 			return;
 		}
@@ -61,7 +61,7 @@ public class SearchAction extends BaseAction<Product> {
 		SystemContext.setOffSet(offSet);
 		SystemContext.setPageSize(pageSize);
 		List<SearchItem> products = productService.search(hql, new String[] { "%" + keyWord + "%" });
-		map.put("response", "search");
+		map.put("result", "1");
 		map.put("pros", products);
 		if (null != products && products.size() > 0) {
 			map.put("proAccount", products.size());

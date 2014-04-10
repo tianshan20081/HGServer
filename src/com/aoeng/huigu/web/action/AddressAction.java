@@ -29,7 +29,7 @@ public class AddressAction extends BaseAction<Address> {
 	public void save() {
 		addressService.saveEntity(model);
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("response", "saveAddress");
+		map.put("result", "1");
 
 		JsonUtils.toJson(map);
 	}
@@ -37,7 +37,7 @@ public class AddressAction extends BaseAction<Address> {
 	public void list() {
 		List<Address> as = addressService.getAllAddress();
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("response", "address");
+		map.put("result", "1");
 		map.put("addressList", as);
 		map.put("addressSize", as.size());
 
@@ -47,7 +47,7 @@ public class AddressAction extends BaseAction<Address> {
 	public void del() {
 		Address t = addressService.findEntity(aid);
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("response", "delAddress");
+		map.put("result", "1");
 		if (null != t) {
 			addressService.delEntity(t);
 			map.put("statusDes", "delSuccess");

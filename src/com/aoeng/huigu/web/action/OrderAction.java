@@ -31,7 +31,7 @@ public class OrderAction extends BaseAction<OrderDetail> {
 	
 	public void detail(){
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("response", "orderDetail");
+		map.put("result", "1");
 		OrderDetail od = os.getOrderByOid("20140403173944558");
 		map.put("orderDetail", od);
 		JsonUtils.toJson(map);
@@ -39,7 +39,7 @@ public class OrderAction extends BaseAction<OrderDetail> {
 
 	public void list() {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("response", "orders");
+		map.put("result", "1");
 		List<OrderSummary> list = os.findOrdersByUid(userId);
 
 		map.put("orderList", list);

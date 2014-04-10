@@ -35,7 +35,7 @@ public class HelpAction extends BaseAction<Help> {
 		Map<String, Object> map = new HashMap<String, Object>();
 		if (StringUtils.isEmpty(versionNum)) {
 			System.out.println(versionNum);
-			map.put("response", "help");
+			map.put("result", "1");
 			map.put("status", "error");
 			map.put("statusDesc", "版本号不能为空 !");
 			JsonUtils.toJson(map);
@@ -43,7 +43,7 @@ public class HelpAction extends BaseAction<Help> {
 		}
 		
 		List<Help> helps = helpService.getAllHelpTitle(versionNum);
-		map.put("response", "helps");
+		map.put("result", "1");
 		map.put("helpList", helps);
 		map.put("helpSize", helps.size());
 
@@ -52,7 +52,7 @@ public class HelpAction extends BaseAction<Help> {
 	public void detail(){
 		Help help = helpService.findEntity(pid);
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("response", "helpDetail");
+		map.put("result", "1");
 		map.put("helpDetail", help);
 		JsonUtils.toJson(map);
 	}
