@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function callPhone() {
+		var str = document.getElementById("tel").value;
+		alert(str);
+	}
+	function clearPhoneInput() {
+		document.getElementById("tel").value = "";
+	}
+</script>
+</head>
+<body>
+
+	<input id="tel" name="tel" />
+	<button id="btn" name="call phone" onclick="callPhone();">Call
+		Phone</button>
+	<button onclick="clearPhoneInput()">clear</button>
+
+</body>
+</html>

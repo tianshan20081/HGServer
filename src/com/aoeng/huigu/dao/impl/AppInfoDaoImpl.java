@@ -3,7 +3,6 @@
  */
 package com.aoeng.huigu.dao.impl;
 
-import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import com.aoeng.huigu.model.AppInfo;

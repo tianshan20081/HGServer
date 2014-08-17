@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.aoeng.huigu.model">
+	<class name="AppLogsInfo" table="applogsinfo">
+		<id name="id" column="id" type="integer">
+			<generator class="identity" />
+		</id>
+		<property name="deviceInfo" column="deviceinfo" />
+		<property name="uploadDate" column="uploaddate" />
+		<property name="exceptionDate" column="exceptiondate" />
+		<property name="exceptionInfo" column="exceptioninfo" />
+		<many-to-one name="appInfo" column="appinfoid" />
+
+	</class>
+</hibernate-mapping>

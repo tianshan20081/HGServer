@@ -26,13 +26,13 @@ public class AppInfoTest {
 		AppInfoService appInfoService = (AppInfoService) ac.getBean("appInfoService");
 		AppInfo appInfo = new AppInfo();
 		appInfo.setAppName("huigu");
-		appInfo.setAppDesc("惠顾掌上商城!");
+		appInfo.setAppDesc("sssss");
 		appInfo.setName("惠顾");
 		appInfo.setType("Android");
 		appInfo.setVersionName("1.0.0");
 		appInfo.setVersionCode(1);
 		appInfo.setFaceUpdate(true);
-		appInfo.setDesc("网上商城升级，修复已知BUG");
+		appInfo.setDesc("BUG");
 		appInfo.setUrl("http://192.168.4.4:8080/hg/HuiGu.apk");
 		appInfoService.saveAppInfo(appInfo);
 
