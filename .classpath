@@ -57,10 +57,8 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/json-20140107.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/servlet-api.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_05">
-		<attributes>
-			<attribute name="owner.project.facets" value="java"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/httpmime-4.4-alpha1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/apache-mime4j-0.6.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

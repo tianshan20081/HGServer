@@ -1,18 +1,21 @@
 package com.aoeng.huigu.web.action;
 
 import java.io.File;
+import java.io.IOException;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Controller;
 
 import com.aoeng.huigu.model.AppLogsInfo;
 import com.aoeng.huigu.service.AppLogsService;
+import com.aoeng.huigu.util.JsonUtils;
 
 /**
  * 
  * @author aoeng
- *
+ * 
  */
 @Controller("appLogsAction")
 public class AppLogsAction extends BaseAction<AppLogsInfo> {
@@ -33,18 +36,26 @@ public class AppLogsAction extends BaseAction<AppLogsInfo> {
 		System.out.println("name " + name);
 		System.out.println("upload");
 		System.out.println("files:");
-		for (File u : uploads) {
-			System.out.println("*** " + u + "\t" + u.length());
+		if (null == uploads) {
+			respMap.put("resultCode", "1");
+			respMap.put("result", "the upload file is empty !");
+			JsonUtils.toJson(respMap);
+			return;
 		}
-		System.out.println("filenames:");
-		for (String n : uploadFileNames) {
-			System.out.println("*** " + n);
+		String tmepPath = "/home/paynet/git/HGServer/WebContent/temp";
+		try {
+			for (int i = 0; i < uploads.length; i++) {
+				FileUtils.copyFile(uploads[i], new File(tmepPath, uploadFileNames[i]));
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			// e.printStackTrace();
+			respMap.put("resultCode", "1");
+			respMap.put("result", "the File copy error  !");
 		}
-		System.out.println("content types:");
-		for (String c : uploadContentTypes) {
-			System.out.println("*** " + c);
-		}
-		System.out.println("\n\n");
+		respMap.put("resultCode", "0");
+		respMap.put("result", "File upload success  !");
+
 	}
 
 	public File[] getUpload() {

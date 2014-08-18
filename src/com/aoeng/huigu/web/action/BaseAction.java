@@ -5,6 +5,7 @@ package com.aoeng.huigu.web.action;
 
 import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
+import java.util.HashMap;
 
 import org.apache.struts2.ServletActionContext;
 
@@ -20,6 +21,7 @@ import com.opensymphony.xwork2.Preparable;
 public class BaseAction<T> extends ActionSupport implements ModelDriven<T>, Preparable {
 
 	protected T model;
+	protected HashMap<String, Object> respMap = new HashMap<>();
 
 	public BaseAction() {
 		try {
@@ -54,7 +56,8 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T>, Prep
 		// TODO Auto-generated method stub
 
 	}
-	public void ret(String msg){
+
+	public void ret(String msg) {
 		print(msg);
 	}
 
