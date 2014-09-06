@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<s:form action="app/applogs2_upload" method="POST"
+	<s:form action="app/logs_upload" method="POST"
 		enctype="multipart/form-data">
 		<s:file label="File (1)" name="upload" />
 		<s:file label="File (2)" name="upload" />

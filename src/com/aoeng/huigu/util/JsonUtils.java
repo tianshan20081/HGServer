@@ -20,6 +20,7 @@ public class JsonUtils {
 
 		try {
 			String jsonStr = new JSONObject(map).toJSONString();
+			System.out.println(jsonStr);
 			ServletActionContext.getResponse().setCharacterEncoding("UTF-8");
 			ServletActionContext.getResponse().getWriter().print(jsonStr);
 		} catch (Exception e1) {

@@ -18,8 +18,8 @@
 		<action name="order_*" method="{1}" class="orderAction" />
 	</package>
 	<package name="app" extends="struts-default" namespace="/">
-		<action name="applogs_*" method="{1}" class="appLogsAction" />
-		<action name="applogs2_*" method="{1}" class="appLogs2Action" />
-		<action name="applogs3_*" method="{1}" class="appLogs3Action" />
+		<action name="logs_*" method="{1}" class="appLogsAction" />
+		<action name="logs2_*" method="{1}" class="appLogs2Action" />
+		<action name="logs3_*" method="{1}" class="appLogs3Action" />
 	</package>
 </struts>
