@@ -16,6 +16,7 @@
 		<action name="pros_*" method="{1}" class="productAction" />
 
 		<action name="order_*" method="{1}" class="orderAction" />
+		<action name="qn_*" method="{1}" class="qnAction" />
 	</package>
 	<package name="app" extends="struts-default" namespace="/">
 		<action name="logs_*" method="{1}" class="appLogsAction" />
